@@ -8,5 +8,5 @@
 ###### For create a new react app workspace
 
 # Group E - members
-### Manoranjith > front end ### Shiva Gupta > back endd
+### Manoranjith and Shiva Gupta 
 
