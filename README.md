@@ -7,6 +7,6 @@
 #### npx create-react-app my-app
 ###### For create a new react app workspace
 
-#### Group E - members
-## Manoranjith > front end
-## Shiva Gupta > back endd
+# Group E - members
+### Manoranjith > front end ### Shiva Gupta > back endd
+
