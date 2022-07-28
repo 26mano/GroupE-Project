@@ -1,0 +1,19 @@
+
+.bg-image {
+    /* position: absolute !important; */
+    /* The image used */
+    background-image: url("https://lechtech.net/wp-content/uploads/2016/02/webdevelopment-bg.jpg") !important;
+    
+    /* Add the blur effect */
+    filter: blur(4px) !important;
+    -webkit-filter: blur(4px) !important;
+    
+    /* Full height */
+    height: 100vh !important; 
+    
+    /* Center and scale the image nicely */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    color:rgba(253, 255, 254, 0.807) ;
+  }
