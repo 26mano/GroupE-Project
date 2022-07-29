@@ -13,6 +13,11 @@ function Login(props) {
         password: '',
         showPassword: false,
     });
+    const [mail, setMail] = useState("");
+
+    const handleEmailChange = (e) => {
+        setMail(e.target.value);
+    }
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -45,10 +50,13 @@ function Login(props) {
                           
                         <TextField  
                         variant='outlined' 
-                        type="tel" 
-                        label="Mobile Number" 
-                        onChange={handleChange}
-                        sx={{ my:"10px" }} />
+                        type="email" 
+                        label="Enter Your Email ID" 
+                        value={mail}
+                        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                        onChange={handleEmailChange}
+                        sx={{ my:"10px" }} 
+                        required/>
                       
                         <FormControl sx={{ my:"10px", width:"100%" }} variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>

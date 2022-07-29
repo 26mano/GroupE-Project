@@ -5,17 +5,17 @@ import {Link} from 'react-router-dom';
 
 export default function Nav() {
   return (
-    <div>
-        <AppBar sx={{bgcolor:"transparent" , boxShadow:"none" , }} >
+    <div style={{position:"static" , width:"100%"}}>
+        <AppBar sx={{bgcolor:"white" , boxShadow:"none" , }} >
         <Toolbar sx={{bgcolor:"transparent"}} >
-            <Typography sx={{ display:"flex" , color:"black", alignItems:"center" , flexGrow:1}} >
+            <Typography sx={{ display:"flex" , color:"#004d40", alignItems:"center" , flexGrow:1}} >
                 <img src={Img1} width="30px" height="30px" alt='img' style={{ textShadow:"1px 2px 1px 2px grey"}} /> 
                 <h3 >TraVlogger</h3>
             </Typography>
             {/* <Button sx={{ order:0, flexGrow:10, width:"300px", pr:"10px" ,textDecoration:"none" , justifyContent:"center", color:"black"}} >Add Blog / All BLog</Button> */}
 
-            <Link to="Login" style={{ order:1, flexGrow: 0 , paddingRight:"10px" , textDecoration:"none", color:"black" }} > <Button variant='contained' sx={{color:"White" ,bgcolor:"#424242"}} >Sing-In/Up</Button> </Link>
-            <Link to="Register" style={{ order:2 , paddingRight:"10px", textDecoration:"none" , color:"black"}} > <Button  variant='contained' sx={{color:"white", bgcolor:"#424242"}} >Register</Button> </Link>
+            <Link to="Login" style={{ order:1, flexGrow: 0 , paddingRight:"10px" , textDecoration:"none", color:"black" }} > <Button variant='contained' size='small' sx={{color:"White" ,bgcolor:"#64b5f6"}} >Login</Button> </Link>
+
 
         </Toolbar>
         </AppBar>

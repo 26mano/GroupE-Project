@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+#  Default breakpoints
+#### Each breakpoint (a key) matches with a fixed screen width (a value):
+
+#### xs, extra-small: 0px
+#### sm, small: 600px
+#### md, medium: 900px
+#### lg, large: 1200px
+#### xl, extra-large: 1536px

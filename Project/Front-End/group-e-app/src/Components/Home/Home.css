@@ -1,0 +1,16 @@
+/* body{
+    margin: 0% !important;
+    padding: 0% !important;
+} */
+.card:after {
+    background-color: #f2f2f2;
+    content: "";
+    height: 10px;
+    top: 390px;
+    width: 100%;
+  }
+.card:hover {
+    transform: scale(1.15);
+  }
+
+

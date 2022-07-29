@@ -1,4 +1,4 @@
-import { Box, Button, Container, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, FormControl, FormGroup, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 // import UserLog from './loguser.svg';
 import Visibility from '@mui/icons-material/Visibility';
@@ -8,7 +8,6 @@ import "./Register.css";
 // import { Icon } from '@iconify/react';
 
 function Register(props) {
-
     const [values, setValues] = useState({
         password: '',
         showPassword: false,
@@ -54,10 +53,10 @@ function Register(props) {
     return (
         <div  >
             <div  className='bg-image'  > </div>
-            <Stack sx={{position:"absolute",width:"100%", height:"100vh", justifyContent:"center" , alignItems:"center" , zIndex:20,  transform: "translate(-0%, -100%)"}} >
+            <Stack sx={{position:"absolute",width:"100%", height:"100%", justifyContent:"center" , alignItems:"center" , zIndex:10,  transform: "translate(-0%, -100%)"}} >
 
-              <Stack  justifyContent="center" >
-                  <Box sx={{ width:"100%" , height:"100%" , boxShadow:"1px 1px 6px #ccc" ,  bgcolor:"rgba(253, 255, 254, 0.807) " , padding:"20px" , borderRadius:"5px", py:7 , px:5}} >
+              <Stack   >
+                  <Box sx={{ width:"100%" , height:"70%" , boxShadow:"1px 1px 6px #ccc" ,  bgcolor:"rgba(253, 255, 254, 0.807) " , padding:"20px" , borderRadius:"5px", py:7 , px:5}} >
                      
 
                       <Container sx={{ display:"grid" , width:"100%" }}>
@@ -65,21 +64,42 @@ function Register(props) {
                           {/* <img src={UserLog} alt="Profile-img" width={100} style={{ alignSelf:"center" }}  /> */}
                           <Typography variant='h6' fontWeight="bold" textAlign="center" >REGISTER</Typography>
                           </Stack>
-                          
+               <FormGroup sx={{ width:"100%" }} variant="outlined" >
+
+                        <TextField  
+                        variant='outlined' 
+                        type= "text" 
+                        name="name"
+                        label= "Enter Your Name"
+                        onChange={handleChange}
+                        sx={{ mb:"5px"  }} />
+
                         <TextField  
                         variant='outlined' 
                         type= "tel" 
+                        name="number"
                         label= "Enter Your Mobile Number"
                         onChange={handleChange}
-                        sx={{ my:"10px" }} />
-                      
-                        <FormControl sx={{ my:"10px", width:"100%" }} variant="outlined">
+                        sx={{ mb:"5px"}} />
+
+                        <TextField  
+                        variant='outlined' 
+                        type= "email" 
+                        name="email"
+                        label= "Enter Your Email"
+                        onChange={handleChange}
+                        sx={{ mb:"5px" }} />                 
+                 
+                        <FormControl sx={{  width:"100%" }} variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-password"
-                               type={values.showPassword ? 'text' : 'password'}
+                            type={values.showPassword ? 'text' : 'password'}
+
                             value={values.password}
+
                             onChange={handleChange('password')}
+
                             endAdornment={
                              <InputAdornment position="end">
                            <IconButton
@@ -94,17 +114,18 @@ function Register(props) {
                                  }
                             label="Password"
                               />
+
                           </FormControl>
 
-                          <FormControl sx={{ my:"10px", width:"100%" }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
+                      <FormControl sx={{ my:"10px", width:"100%" }} variant="outlined">
+                         <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-password"
-                               type={confirm.showConfirmPassword ? 'text' : 'password'}
-                            value={confirm.password}
-                            onChange={handleConfirm('password')}
+                            type={confirm.showConfirmPassword ? 'text' : 'password'}
+                            value={confirm.confirmPassword}
+                            onChange={handleConfirm('confirmPassword')}
                             endAdornment={
-                             <InputAdornment position="end">
+                             <InputAdornment position="end" >
                            <IconButton
                                 aria-label="toggle password visibility"
                                  onClick={handleClickShowConfirmPassword}
@@ -118,9 +139,10 @@ function Register(props) {
                             label="Confirm Password"
                               />
                           </FormControl>
-                          
+
+                      </FormGroup>     
                         
-                          <Button variant='contained' fullWidth  sx={{ my:"10px" }} > Register </Button>
+                          <Button variant='contained' fullWidth  sx={{ mb:"5px" }} > Register </Button>
                       </Container>
                       <Typography variant='subtitle2' mt={2} textAlign="center" > Already have a account <span ><Link to="/Login" >Login</Link>  </span></Typography>
                   </Box>
