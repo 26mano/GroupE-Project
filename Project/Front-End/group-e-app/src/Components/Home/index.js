@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton, Stack, Typography } from '@mui/material'
+import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material'
 import { Container } from '@mui/system';
 import React from 'react'
 import 'react-multi-carousel/lib/styles.css';
@@ -13,16 +13,29 @@ function Home() {
     <div>
     <Stack sx={{ position:"static", width:"100%",height:"100vh", justifyContent:"center" , backgroundImage:"url('https://s3images.zee5.com/wp-content/uploads/2021/08/man-wearing-white-shirt-brown-shorts-and-green-backpack-672358-e1578279373952.jpg')"}}>
 
+        <div style={{display:"inline-grid"}} >
 
-        <Typography variant='h2' pl={10} mt={-15} sx={{fontFamily: "'Noto Serif', serif" }}>
+        <Typography variant='h2' pl={10} mt={-15} sx={{fontFamily: "'Noto Serif', serif", color:"White" , textShadow:"2px 4px 6px grey" }}>
             Enjoy your Tour<br />
             With Travel Experience
         </Typography>
+        <Typography variant='subtitle1'  pl={10} mt={0}>
+        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, <br />
+        consectetur, adipisci velit, There is no one who loves pain itself, <br />
+        who seeks after it and wants to have it, simply because it is pain...
+        </Typography>
+        </div>
+
+        <div>
+            <Button variant='outlined' type='button' >
+            
+            </Button>
+        </div>
         </Stack>
         
         <Container sx={{ position:"static", justifyContent:"center", backgroundColor:"whitesmoke"}} >
                 <Container  >
-                <Typography variant='h4' textAlign="center" pt="100px" >
+                <Typography variant='h4' textAlign="center" pt="100px" sx={{ fontFamily: "'Yeseva One', cursive" }} >
                 Your Travel Information
                 </Typography>
                 </Container>
