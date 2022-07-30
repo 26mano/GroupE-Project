@@ -82,7 +82,7 @@ function Login(props) {
                           </FormControl>
                             
                           
-                        <Link to="/" style={{ textDecoration:"none" }} >
+                        <Link to="AllBlog" style={{ textDecoration:"none" }} >
                         <Button variant='contained'  fullWidth  sx={{ my:"10px" }} > Login </Button>
                         </Link>
                           

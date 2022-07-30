@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import './App.css';
+import AllBlogs from './Components/Blog/AllBlog';
+import MyBlog from './Components/Blog/MyBlog';
 // import Footer from './Components/Footer';
 
 
@@ -14,12 +16,18 @@ import Register from "./Components/login/Register/Register.js";
 function App() {
   return (
 <div>
+  {/* <Blog /> */}
      <Routes>
-      
      <Route path="/" element={<Home />} /> 
      <Route path="/Login" element={<Login />} /> 
      <Route path="/Register" element={<Register />} /> 
-   
+
+     {/* ----------------------------- */}
+     {/* <Route path='/Login/AllBlogs' element={<Blog/>}  /> */}
+     {/* ----------------------------------- */}
+     <Route path="/Login/AllBlog" element={<AllBlogs />} /> 
+     <Route path="/Login/AllBlog/MyBlog" element={<MyBlog />} /> 
+
     </Routes>
 
    </div>

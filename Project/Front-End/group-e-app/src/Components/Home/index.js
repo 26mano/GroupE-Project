@@ -8,7 +8,8 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import AirplanemodeActiveRoundedIcon from '@mui/icons-material/AirplanemodeActiveRounded';
 import Nav from '../Nav';
 import Footer from '../Footer';
-import { hover } from '@testing-library/user-event/dist/hover';
+
+
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
 // import { Link } from 'react-router-dom';
@@ -66,6 +67,7 @@ function Home() {
   return (
     <div>
     <Nav />
+    {/* ------------------------------------------------------------ */}
         <Stack id="home" sx={{ position:"static",height:"100vh", justifyContent:"center" , backgroundImage:"url('https://s3images.zee5.com/wp-content/uploads/2021/08/man-wearing-white-shirt-brown-shorts-and-green-backpack-672358-e1578279373952.jpg')"}}>
 
         <Container style={{display:"grid"}} >
@@ -127,7 +129,7 @@ function Home() {
          </Stack>               
          </Stack>
 
-         {/* ---------------------------------------------------- */}
+    {/* ------------------------------------------------------------- */}
          <Stack pt="20px" pb="20px" sx={{  width:"100%",height:"100vh", justifyContent:"center" , backgroundColor:"gray"}}>
             <Container sx={{  width:"100%" , height:"100%" , p:"20px"}} >
                 <Typography variant='h4' textAlign="center" color="white" fontFamily="'Yeseva One', cursive" pb="10px"  >
@@ -185,9 +187,9 @@ function Home() {
                 </Stack>
             </Container>
          </Stack> 
-         {/* --------------------------- */}
-
+    {/* ------------------------------------------------------------- */}
          <Footer />
+    {/* ------------------------------------------------------------- */}
     </div>
   )
 }
