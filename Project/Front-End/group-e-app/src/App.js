@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import './App.css';
+import AddBlog from './Components/Blog/AddBlog';
 import AllBlogs from './Components/Blog/AllBlog';
 import MyBlog from './Components/Blog/MyBlog';
 // import Footer from './Components/Footer';
@@ -26,7 +27,10 @@ function App() {
      {/* <Route path='/Login/AllBlogs' element={<Blog/>}  /> */}
      {/* ----------------------------------- */}
      <Route path="/Login/AllBlog" element={<AllBlogs />} /> 
-     <Route path="/Login/AllBlog/MyBlog" element={<MyBlog />} /> 
+     <Route path="/AllBlog" element={<AllBlogs />} /> 
+     <Route path="/MyBlog" element={<MyBlog />} /> 
+     <Route path="/ADDBlog" element={<AddBlog />} /> 
+
 
     </Routes>
 

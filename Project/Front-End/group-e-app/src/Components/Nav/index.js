@@ -4,9 +4,10 @@ import {AppBar,Button,Toolbar, Typography} from '@mui/material';
 import {Link} from 'react-router-dom';
 
 export default function Nav() {
+  //linear-gradient(180deg, rgba(255,255,255,1) 18%, rgba(255,255,255,0.36207986612613796) 100%)
   return (
     <div style={{position:"static" , width:"100%"}}>
-        <AppBar sx={{bgcolor:"white" , boxShadow:"none" , }} >
+        <AppBar sx={{ boxShadow:"none" , background:"linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%)" }} >
         <Toolbar sx={{bgcolor:"transparent"}} >
             <Typography sx={{ display:"flex" , color:"#004d40", alignItems:"center" , flexGrow:1}} >
                 <img src={Img1} width="30px" height="30px" alt='img' style={{ textShadow:"1px 2px 1px 2px grey"}} /> 
