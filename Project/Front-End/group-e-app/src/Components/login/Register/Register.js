@@ -56,7 +56,7 @@ function Register(props) {
             <Stack sx={{position:"absolute",width:"100%", height:"100%", justifyContent:"center" , alignItems:"center" , zIndex:10,  transform: "translate(-0%, -100%)"}} >
 
               <Stack   >
-                  <Box sx={{ width:"100%" , height:"70%" , boxShadow:"1px 1px 6px #ccc" ,  bgcolor:"rgba(253, 255, 254, 0.807) " , padding:"20px" , borderRadius:"5px", py:7 , px:5}} >
+                  <Box sx={{ width:"90%" , height:"80%" , boxShadow:"1px 1px 6px #ccc" ,  bgcolor:"rgba(250, 252, 254, 0.7) " , padding:"20px" , borderRadius:"5px", py:7 , px:5}} >
                      
 
                       <Container sx={{ display:"grid" , width:"100%" }}>

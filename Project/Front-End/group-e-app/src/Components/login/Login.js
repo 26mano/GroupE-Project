@@ -39,7 +39,7 @@ function Login(props) {
             <Stack sx={{position:"absolute",width:"100%", height:"100vh", justifyContent:"center" , alignItems:"center" , zIndex:20,  transform: "translate(-0%, -100%)"}} >
 
               <Stack  justifyContent="center" >
-                  <Box sx={{ width:"100%" , height:"100%" , boxShadow:"1px 1px 6px #ccc" ,  bgcolor:"rgba(253, 255, 254, 0.807) " , padding:"20px" , borderRadius:"5px", py:7 , px:5}} >
+                  <Box sx={{ width:"80%" ,  boxShadow:"1px 1px 6px #ccc" ,  bgcolor:"rgba(250, 252, 254, 0.7) " , padding:"20px" , borderRadius:"5px", py:7 , px:5}} >
 
                       <Container sx={{ display:"grid" , width:"100%" }}>
                           <Stack sx={{mb:2}} >
