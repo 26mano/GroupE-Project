@@ -11,7 +11,6 @@ function AddBlog() {
             <Container maxWidth="md" sx={{ border:"2px solid goldenrod" , p:"20px",  background:"whitesmoke" , borderRadius:"25px"}} >
                 <FormGroup  sx={ { p:"20px" }}>
                     <FormLabel >ADD BLOG</FormLabel>
-
                 <FormControl sx={ { mt:"25px" }}>
                 <InputLabel htmlFor="my-input">Place of Visit</InputLabel>
                 <Input id="my-input"  />

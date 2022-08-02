@@ -1,9 +1,15 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import './App.css';
+// import AllBloges from './Components/Allblog/AllBloges';
+// import AllBlog from './Components/Allblog/AllBloges';
+// import Allblog from './Components/Allblog/';
 import AddBlog from './Components/Blog/AddBlog';
 import AllBlogs from './Components/Blog/AllBlog';
 import MyBlog from './Components/Blog/MyBlog';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; 
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle'; 
+
 // import Footer from './Components/Footer';
 
 
@@ -26,7 +32,6 @@ function App() {
      {/* ----------------------------- */}
      {/* <Route path='/Login/AllBlogs' element={<Blog/>}  /> */}
      {/* ----------------------------------- */}
-     <Route path="/Login/AllBlog" element={<AllBlogs />} /> 
      <Route path="/AllBlog" element={<AllBlogs />} /> 
      <Route path="/MyBlog" element={<MyBlog />} /> 
      <Route path="/ADDBlog" element={<AddBlog />} /> 
