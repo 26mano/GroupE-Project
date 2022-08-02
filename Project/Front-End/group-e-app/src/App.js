@@ -35,7 +35,7 @@ function App() {
      <Route path="/AllBlog" element={<AllBlogs />} /> 
      <Route path="/MyBlog" element={<MyBlog />} /> 
      <Route path="/ADDBlog" element={<AddBlog />} /> 
-
+      
 
     </Routes>
 
