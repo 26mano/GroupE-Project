@@ -8,14 +8,6 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import AirplanemodeActiveRoundedIcon from '@mui/icons-material/AirplanemodeActiveRounded';
 import Nav from '../Nav';
 import Footer from '../Footer';
-
-
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-// import { AnimationOnScroll } from 'react-animation-on-scroll';
-// import { Link } from 'react-router-dom';
-
-
-
 function Home() {
 
     const content = [

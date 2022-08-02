@@ -39,6 +39,14 @@ const Allblogdata =[
         description:"Its a good place to vsit"
 
     },
+    {
+        name:"Shivya Nath",
+        avatar:"https://www.escape2explore.com/blog/wp-content/uploads/2015/12/shivya.png",
+        image:"https://www.outlookindia.com/outlooktraveller/public/uploads/filemanager/images/Author-photo-2---Shivya-Nath-(1).jpg",
+        place:"My Italy Visit",
+        description:"Its a good place to vsit"
+
+    },
 
 ]
 export default Allblogdata;
