@@ -1,6 +1,6 @@
-import { AppBar, Avatar,  Toolbar, Typography } from '@mui/material'
+// import { AppBar, Avatar,  Toolbar, Typography } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Nav from '../../Nav'
 
 //background: linear-gradient(343deg, rgba(49,181,255,1) 0%, rgba(253,245,75,1) 100%);

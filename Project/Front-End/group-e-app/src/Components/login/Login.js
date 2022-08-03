@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import UserLog from './loguser.svg';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "./Login.css";
 
 
@@ -82,9 +82,9 @@ function Login(props) {
                           </FormControl>
                             
                           
-                        <Link to="AllBlog" style={{ textDecoration:"none" }} >
+                        <NavLink  to="/AllBlog" style={{ textDecoration:"none" }} >
                         <Button variant='contained'  fullWidth  sx={{ my:"10px" }} > Login </Button>
-                        </Link>
+                        </NavLink >
                           
                       </Container>
                       <Typography variant='subtitle2' mt={2} textAlign="center" > If you didn't have account : Register <span ><Link to="/Register" >here</Link>  </span></Typography>

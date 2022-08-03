@@ -3,18 +3,22 @@ import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography, IconButto
 import "../../Home/Home.css"
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from "react-router";
 
 
 const  MyBlogCard = (props) => {
-
+const navigate = useNavigate();
+    const handleEdit = () => {
+        navigate(`/ADDBlog/Edit/${props.id}`)
+    }
     return(
         <>
    
            <div className="col-md-4 col-10 mx-auto">
               <div className="card1" >
-   
+
                       <Card sx={{ bgcolor:"grey", width:"100%" }} >
-                    <CardHeader
+                       <CardHeader
                           avatar={
                             <Avatar sx={{ bgcolor: "white" }} aria-label="recipe">
                               <img src={props.avatar} width="50px" height="50px" alt={props.name} />
@@ -23,10 +27,12 @@ const  MyBlogCard = (props) => {
                           title={props.name}
                           action={
                             <div>
-                            <IconButton aria-label="settings">
+                            <IconButton aria-label="edit" onClick={handleEdit} >
                               <EditIcon fontSize="small"  />
                             </IconButton>
-                            <IconButton aria-label="settings">
+                            <IconButton aria-label="delete"  onClick={() => {   
+                              props.deleteIndex(props.index);
+                              }} >
                               <DeleteIcon fontSize="small" />
                             </IconButton>
                             </div>
@@ -45,8 +51,7 @@ const  MyBlogCard = (props) => {
                         <Typography variant="caption" > {props.description}</Typography>
                       </CardContent>
                  </Card>
-  
-                     
+
                     </div>
                   </div>
             

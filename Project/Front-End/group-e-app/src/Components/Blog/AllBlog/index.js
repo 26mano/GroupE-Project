@@ -1,15 +1,24 @@
 import { Typography } from "@mui/material";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../../Nav";
 import Allblogcard from "./Allblogcard";
-import Allblogdata from "./Allblogdata";
+// import Allblogdata from "./Allblogdata";
+import data from "../data";
 
 function AllBlog(id,name,place,des) {
-  localStorage.setItem('id',id)
-  localStorage.setItem('name',name)
-  localStorage.setItem('place',place)
-  localStorage.setItem('description',des)
+  localStorage.setItem('id',JSON.stringify(id))
+  localStorage.setItem('name',JSON.stringify(name))
+  localStorage.setItem('place',JSON.stringify(place))
+  localStorage.setItem('description',JSON.stringify(des))
+const [actualData, setActualData] = useState(data);
+ useEffect(() => {
+    if(!localStorage.getItem('data')){
+      localStorage.setItem('data', JSON.stringify(actualData))
+    }else {
+      setActualData(JSON.parse(localStorage.getItem('data')));
+    }
+ },[actualData])
 
   return ( 
 <div style={{ backgroundColor:"grey", paddingTop:"70px" }} > 
@@ -32,7 +41,7 @@ function AllBlog(id,name,place,des) {
             <div className="col-10 mx-auto">
               <div className="row gy-4" style={{ marginTop:"5px" , backgroundColor:"grey" }} >
           
-            {  Allblogdata.map((value,index) =>{
+            {  actualData.map((value,index) =>{
                           return (
                             <Allblogcard 
                                 name={value.name}
@@ -47,27 +56,6 @@ function AllBlog(id,name,place,des) {
                                     })   }
           
 
-   
-        
-                {/* {  Allblogdata.map((value,index) =>{
-                          return (
-                            <Allblogcard 
-                                name={value.name}
-                                avatar={value.avatar}
-                                image={value.image}
-                                place={value.place}
-                                description={value.description}
-                               />
-                   
-                                    )
-                                    
-                                    })   } */}
- 
-                            
-
-              
-             
-              
               
                 
                 </div>

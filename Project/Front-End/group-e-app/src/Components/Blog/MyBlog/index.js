@@ -1,15 +1,35 @@
 import { Typography } from "@mui/material";
 
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Nav from "../../Nav";
 import MyBlogCard from "./MyBlogCard";
-import Myblogdata from "./Myblogdata";
+// import Myblogdata from "./Myblogdata";
+import data from "../data";
+
 
 function MyBlog(id,name,place,des) {
   localStorage.setItem('id',id)
   localStorage.setItem('name',name)
   localStorage.setItem('place',place)
   localStorage.setItem('description',des)
+  
+  const [myData, setMyData] = useState(data);
+
+  useEffect(() => {
+    if(!localStorage.getItem('data')){
+      localStorage.setItem('data', JSON.stringify(myData))
+    }else {
+      setMyData(JSON.parse(localStorage.getItem('data')))
+    }
+  },[myData])
+
+  const handleDeleteData = useCallback((i) => {
+  const newArrayItem = myData.filter((arr,index) => (
+          index !== i
+        ));
+      setMyData(newArrayItem);
+      localStorage.setItem('data', JSON.stringify(newArrayItem))
+   },[myData])
 
 return ( 
     <div style={{ backgroundColor:"grey", paddingTop:"70px" }} > 
@@ -19,9 +39,7 @@ return (
                     <div className="row">
                         <div className="col-12">
                             <Typography variant="h4" fontFamily="'Yeseva One', cursive" color="white" className="section-title fw-bold mb-2 text-center" >Lates Blogs</Typography>
-                            <nav aria-label="breadcrumb">
-                               
-                            </nav>
+
                         </div>
                     </div>
                 </div>
@@ -32,46 +50,25 @@ return (
             <div className="col-10 mx-auto">
               <div className="row gy-4" style={{ marginTop:"5px" , backgroundColor:"grey" }} >
           
-            {  Myblogdata.map((value,index) =>{
-                          return (
+            {myData.map((value,index) => {
+                  if(value.user === "123"){
+                  return (
                             <MyBlogCard 
                                 name={value.name}
                                 avatar={value.avatar}
                                 image={value.image}
                                 place={value.place}
+                                id={value.id}
+                                index={index}
                                 description={value.description}
+                                deleteIndex={handleDeleteData}
                                />
-                   
-                                    )
-                                    
-                                    })   }
-          
+                        )}
+                      })   
+            }
 
-   
-        
-                {/* {  Allblogdata.map((value,index) =>{
-                          return (
-                            <Allblogcard 
-                                name={value.name}
-                                avatar={value.avatar}
-                                image={value.image}
-                                place={value.place}
-                                description={value.description}
-                               />
-                   
-                                    )
-                                    
-                                    })   } */}
- 
-                            
-
-              
-             
-              
-              
-                
-                </div>
-                </div>
+         </div>
+         </div>
 
                 
                 </div>
@@ -89,8 +86,4 @@ return (
 }
  
 export default MyBlog
-
-
-
-
 

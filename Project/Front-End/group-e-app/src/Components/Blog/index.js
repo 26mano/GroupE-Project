@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 // pages
 import MyBlogs from './MyBlog'
 
