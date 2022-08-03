@@ -3,15 +3,13 @@ import React from 'react'
 
 
 // pages
-import AllBlogs from './AllBlog'
-// import MyBlog from './MyBlog';
+import MyBlogs from './MyBlog'
+
 
 export default function Blog() {
   return (
-
-    
     <div>
-        <AllBlogs />
+        <MyBlogs />
     </div>
 
   )

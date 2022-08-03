@@ -2,19 +2,23 @@ import { Button, FormControl, FormGroup, FormLabel, Input, InputLabel, Stack, Ty
 import { Container } from '@mui/system'
 import React, { useState } from 'react'
 import Nav from '../../Nav'
-import BlogNav from '../BlogNav'
+// import BlogNav from '../BlogNav'
 import {  useNavigate } from 'react-router-dom';
-import Allblogdata from '../AllBlog/Allblogdata'
+import Allblogdata from '../AllBlog/Allblogdata';
+import Myblogdata from '../MyBlog/Myblogdata';
 function AddBlog() {
     let history = useNavigate();
     const[name,setName] = useState('');
     const[place,setPlace] = useState('');
     const[des,setDes] = useState('');
+    const[image,setImage] = useState('');
+
     const Submitbutton =(e)=>{
         e.preventDefault();
 
- 
-  Allblogdata.push({name:name,place:place,description:des})
+  Myblogdata.push({name:name,image:image,place:place,description:des})
+         history("/MyBlog")
+  Allblogdata.push({name:name,image:image,place:place,description:des})
          history("/AllBlog")
     }
     return (
@@ -37,11 +41,11 @@ function AddBlog() {
                             <InputLabel htmlFor="my-input">Place of Visit</InputLabel>
                             <Input id="my-input"  type='text' name="place" value={place} onChange={(e)=>setPlace(e.target.value)}  />
                         </FormControl>
-
-                        {/* <FormControl sx={{ mt: "25px" }}>
-                            <InputLabel htmlFor="my-input">Image Url</InputLabel>
-                            <Input id="my-input" type='url' />
-                        </FormControl> */}
+                        <FormControl sx={{ mt: "25px" }}>
+            
+                            <InputLabel htmlFor="my-input"   >Media</InputLabel>
+                            <Input name='image' id="my-input" type='url' value={image} onChange={(e)=>setImage(e.target.value)} />
+                        </FormControl>
                         <FormControl sx={{ mt: "25px" }} >
                             <InputLabel htmlFor="my-input" >Description</InputLabel>
                             <Input id="my-input" type='textArea' value={des} name="des" onChange={(e)=>setDes(e.target.value)} />

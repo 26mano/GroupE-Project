@@ -17,6 +17,8 @@ export default function Nav() {
            <NavLink to="/AllBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }} > <Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }} >All Blog</Button> </NavLink>
            {/* <Link to="ADDBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }} > <Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }} >Add Blog</Button> </Link> */}
            <NavLink to="/ADDBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }}><Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }}>AddBlog</Button></NavLink>
+           <NavLink to="/MyBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }}><Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }}>My Blog</Button></NavLink>
+
           {/* <Button sx={{ order:0, flexGrow:10, width:"300px", pr:"10px" ,textDecoration:"none" , justifyContent:"center", color:"black"}} >Add Blog / All BLog</Button> */}
           <NavLink to="/Register" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }} > <Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }} >Register</Button> </NavLink>
 
