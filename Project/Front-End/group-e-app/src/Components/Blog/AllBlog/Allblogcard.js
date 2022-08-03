@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material'
 import "../../Home/Home.css"
-import Pagination from 'react-bootstrap/Pagination';
+// import Pagination from 'react-bootstrap/Pagination';
 
 const  Allblogcard = (props) => {
 

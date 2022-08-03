@@ -5,7 +5,12 @@ import Nav from "../../Nav";
 import Allblogcard from "./Allblogcard";
 import Allblogdata from "./Allblogdata";
 
-function AllBlog() {
+function AllBlog(id,name,place,des) {
+  localStorage.setItem('id',id)
+  localStorage.setItem('name',name)
+  localStorage.setItem('place',place)
+  localStorage.setItem('description',des)
+
   return ( 
 <div style={{ backgroundColor:"grey", paddingTop:"70px" }} > 
 <Nav/>
