@@ -122,7 +122,7 @@ function Home() {
          </Stack>
 
     {/* ------------------------------------------------------------- */}
-         <Stack pt="20px" pb="20px" sx={{  width:"100%",height:"100vh", justifyContent:"center" , backgroundColor:"gray"}}>
+         <Stack pt="20px" pb="20px" sx={{  width:"100%",height:"100%", justifyContent:"center" , backgroundColor:"gray"}}>
             <Container sx={{  width:"100%" , height:"100%" , p:"20px"}} >
                 <Typography variant='h4' textAlign="center" color="white" fontFamily="'Yeseva One', cursive" pb="10px"  >
                     The Best Travel Bloggers
@@ -141,7 +141,7 @@ function Home() {
                           <Box sx={{ width:"100%",height:"100%", padding:"5px",  boxShadow :"2px 2px 10px #ccc" , borderRadius:"10px"  }} >
 
                               <Card className='card' sx={{width:"100%",height:"100%"}} >
-                              <CardHeader      sx={{ width:"auto" , height:"20px"}}                           
+                              <CardHeader      sx={{ width:"auto" , height:"50px"}}                           
                                     avatar={
                                    <Avatar sx={{ bgcolor: "blue" }} aria-label="recipe">
                                      <img src={card.image1} alt="profile"  width="40px" height="40px" />
@@ -152,7 +152,7 @@ function Home() {
                                  />                    
                                 <CardMedia
                             component="img"
-                            height="200"
+                            height="250"
                             width="200"
                             image={card.image}
                             alt="Paella dish"
