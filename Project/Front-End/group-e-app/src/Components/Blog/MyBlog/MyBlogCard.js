@@ -21,7 +21,8 @@ const navigate = useNavigate();
                        <CardHeader
                           avatar={
                             <Avatar sx={{ bgcolor: "blue" }} aria-label={props.name}>
-                              <img src={props.avatar} width="50px" height="50px" alt={props.name} />
+                              {props.name[0]}
+                              {/* <img src={props.avatar} width="50px" height="50px" alt={props.name} /> */}
                             </Avatar>
                           } 
                           title={props.name}
