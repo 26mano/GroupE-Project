@@ -72,8 +72,8 @@ function AddBlog() {
                             <InputLabel htmlFor="my-input">Place of Visit</InputLabel>
                             <Input id="my-input"  type='text' name="place" value={place} onChange={(e)=>setPlace(e.target.value)}  />
                         </FormControl>
-                        <FormControl sx={{ mt: "25px" }}>
-            
+                        <FormControl  sx={{ mt: "25px" }}>
+
                             <InputLabel htmlFor="my-input"   >Media</InputLabel>
                             <Input name='image' id="my-input" type='url' value={image} onChange={(e)=>setImage(e.target.value)} />
                         </FormControl>

@@ -5,6 +5,7 @@ import Nav from "../../Nav";
 import MyBlogCard from "./MyBlogCard";
 // import Myblogdata from "./Myblogdata";
 import data from "../data";
+import Footer from "../../Footer";
 
 
 function MyBlog(id,name,place,des) {
@@ -21,7 +22,7 @@ function MyBlog(id,name,place,des) {
     }else {
       setMyData(JSON.parse(localStorage.getItem('data')))
     }
-  },[myData])
+  },[])
 
   const handleDeleteData = useCallback((i) => {
   const newArrayItem = myData.filter((arr,index) => (
@@ -38,7 +39,7 @@ return (
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <Typography variant="h4" fontFamily="'Yeseva One', cursive" color="white" className="section-title fw-bold mb-2 text-center" >Lates Blogs</Typography>
+                            <Typography variant="h4" fontFamily="'Yeseva One', cursive" color="white" className="section-title fw-bold mb-2 text-center" >My Blogs</Typography>
 
                         </div>
                     </div>
@@ -80,7 +81,7 @@ return (
    
 </div>
              </section>
-
+<Footer />
 </div>
   )
 }

@@ -5,6 +5,7 @@ import Nav from "../../Nav";
 import Allblogcard from "./Allblogcard";
 // import Allblogdata from "./Allblogdata";
 import data from "../data";
+import Footer from "../../Footer";
 
 function AllBlog(id,name,place,des) {
 
@@ -19,7 +20,7 @@ const [actualData, setActualData] = useState(data);
     }else {
       setActualData(JSON.parse(localStorage.getItem('data')));
     }
- },[actualData])
+ },[])
 
 
  const handleDeleteData = useCallback((i) => {
@@ -85,7 +86,7 @@ const [actualData, setActualData] = useState(data);
    
 </div>
              </section>
-
+<Footer />
 </div>
   )
 }

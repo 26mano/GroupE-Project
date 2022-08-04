@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { FormGroup,FormControl, Stack, Typography,Button, Input } from '@mui/material';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,7 +19,7 @@ const Register = () => {
 
    
 
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
     console.log(inpval);
 
     const getdata = (e) => {
@@ -73,20 +73,31 @@ const Register = () => {
 
     return (
         <>
-       <div>
-                        <h3>Sign Up</h3>
+       <Stack sx={{display:"flex", height:'100vh' , justifyContent:"center", alignItems:"center", backgroundImage:"url('https://www.habilelabs.io/wp-content/uploads/2017/09/it-background-5.jpg')"}}>
                         <form onSubmit={addData}>
-                        <input type="text" placeholder='enter the name' name="name" value={inpval.name} onChange={getdata}/>
-                        <br/><br/>
-                        <input type="email" placeholder='enter the email' name="email" value={inpval.email} onChange={getdata}/>
-                        <br/><br/>
-                        <input type="password" placeholder='enter the password' name="password" value={inpval.password} onChange={getdata}/>
-                        <br/><br/>
-                        <button>Submit</button>
+                        <FormGroup sx={{ bgcolor:"wheat" , p:"50px", borderRadius:"25px" }}>
+                        <Typography variant="h5" m={2} textAlign="center" > Register</Typography>
+                        
+                      <FormControl> 
+                        <Input type="text" placeholder='Enter the name' name="name" value={inpval.name} onChange={getdata}/>
+                      </FormControl>
+                        <br />
+                      <FormControl>
+                        <Input type="email" placeholder='Enter the email' name="email" value={inpval.email} onChange={getdata}/>
+                        </FormControl>
+                        <br />
+                        <FormControl>
+                        <Input type="password" placeholder='Enter the password' name="password" value={inpval.password} onChange={getdata}/>
+                        </FormControl>
+                        <br />
+
+                        <Button variant='contained' color="warning" >Submit</Button>
+
+                        </FormGroup>
                         </form>
-                      
                         <ToastContainer/>
-                       </div>
+                       
+            </Stack>
 
             {/* <div className="container mt-3">
                 <section className='d-flex justify-content-between'>

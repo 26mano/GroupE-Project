@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
+import { Button, FormControl, FormGroup, Input, Stack, Typography } from '@mui/material';
+
 
 const Login = () => {
 
@@ -78,19 +80,26 @@ const Login = () => {
     return (
         <>
         
-                    <div>
-                        <h3>Sign Up</h3>
-                        <form onSubmit={addData}>
-                       
-                        <input type="email" placeholder='enter the email' name="email" value={inpval.email} onChange={getdata}/>
-                        <br/><br/>
-                        <input type="password" placeholder='enter the password' name="password" value={inpval.password} onChange={getdata}/>
-                        <br/><br/>
-                        <button>Submit</button>
+                    <Stack sx={{display:"flex", height:'100vh' , justifyContent:"center", alignItems:"center", backgroundImage:"url('https://www.habilelabs.io/wp-content/uploads/2017/09/it-background-5.jpg')"}} >
+                    <form onSubmit={addData}>
+                       <FormGroup sx={{ bgcolor:"wheat" , p:"50px", borderRadius:"25px" }}>
+                        <Typography variant="h5" m={2} textAlign="center" >Log_in</Typography>
+                        
+                        <FormControl>
+                        <Input type="email" placeholder='enter the email' name="email" value={inpval.email} onChange={getdata}/>
+                        </FormControl>
+                        <br/>
+                        <FormControl>
+                        <Input type="password" placeholder='enter the password' name="password" value={inpval.password} onChange={getdata}/>
+                        </FormControl>
+                        <br/>
+
+                        <Button variant='contained' color="warning" >Submit</Button>
+                        
+                        </FormGroup>
                         </form>
-                       
                         <ToastContainer/>
-                        </div>
+                        </Stack>
 
         </>
     )
