@@ -42,7 +42,7 @@ function AddBlog() {
            console.log(Removed);
         console.log(existingData);
 
-        localStorage.setItem('data', JSON.stringify([...Removed, {id:parseInt(blogId), user: '123', name:name,image:image,place:place,description:des} ]))
+        localStorage.setItem('data', JSON.stringify([...Removed, {id:parseInt(blogId), user: "123", name:name,image:image,place:place,description:des} ]))
         history("/MyBlog")
        
         // if(existingData){
