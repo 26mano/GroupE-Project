@@ -1,9 +1,16 @@
 import React from "react";
-import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material'
+import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material'
 import "../../Home/Home.css"
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from "react-router";
 // import Pagination from 'react-bootstrap/Pagination';
 
 const  Allblogcard = (props) => {
+  const navigate = useNavigate();
+    const handleEdit = () => {
+        navigate(`/ADDBlog/Edit/${props.id}`)
+    }
 
     return(
         <>
@@ -14,11 +21,24 @@ const  Allblogcard = (props) => {
                       <Card sx={{ bgcolor:"grey", width:"100%" }} >
                     <CardHeader
                           avatar={
-                            <Avatar sx={{ bgcolor: "white" }} aria-label="recipe">
-                              <img src={props.avatar} width="50px" height="50px" alt={props.name} />
+                            <Avatar sx={{ bgcolor: props.user === "123" ? "#c7522a" : "#008585" }} aria-label="recipe">
+                              {props.name[0]}
+                              {/* <img src={props.avatar} width="50px" height="50px" alt={props.name} /> */}
                             </Avatar>
                           } 
                           title={props.name}
+                          action={props.user ==="123"?
+                          <div>
+                          <IconButton aria-label="edit" onClick={handleEdit} >
+                            <EditIcon fontSize="small"  />
+                          </IconButton>
+                          <IconButton aria-label="delete"  onClick={() => {   
+                            props.deleteIndex(props.index);
+                            }} >
+                            <DeleteIcon fontSize="small" />
+                          </IconButton>
+                          </div>: " "
+                          }
                           
                       />
                     <CardMedia 

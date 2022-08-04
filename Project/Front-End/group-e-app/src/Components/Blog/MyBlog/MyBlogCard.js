@@ -20,7 +20,7 @@ const navigate = useNavigate();
                       <Card sx={{ bgcolor:"grey", width:"100%" }} >
                        <CardHeader
                           avatar={
-                            <Avatar sx={{ bgcolor: "blue" }} aria-label={props.name}>
+                            <Avatar sx={{ bgcolor: "#c7522a" }} aria-label={props.name}>
                               {props.name[0]}
                               {/* <img src={props.avatar} width="50px" height="50px" alt={props.name} /> */}
                             </Avatar>

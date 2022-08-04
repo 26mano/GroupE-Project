@@ -1,12 +1,13 @@
 import { Typography } from "@mui/material";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Nav from "../../Nav";
 import Allblogcard from "./Allblogcard";
 // import Allblogdata from "./Allblogdata";
 import data from "../data";
 
 function AllBlog(id,name,place,des) {
+
   localStorage.setItem('id',JSON.stringify(id))
   localStorage.setItem('name',JSON.stringify(name))
   localStorage.setItem('place',JSON.stringify(place))
@@ -19,6 +20,15 @@ const [actualData, setActualData] = useState(data);
       setActualData(JSON.parse(localStorage.getItem('data')));
     }
  },[actualData])
+
+
+ const handleDeleteData = useCallback((i) => {
+  const newArrayItem = actualData.filter((arr,index) => (
+          index !== i
+        ));
+      setActualData(newArrayItem);
+      localStorage.setItem('data', JSON.stringify(newArrayItem))
+   },[actualData])
 
   return ( 
 <div style={{ backgroundColor:"grey", paddingTop:"70px" }} > 
@@ -44,11 +54,15 @@ const [actualData, setActualData] = useState(data);
             {  actualData.map((value,index) =>{
                           return (
                             <Allblogcard 
+                                user={value.user}
                                 name={value.name}
                                 avatar={value.avatar}
                                 image={value.image}
+                                id={value.id}
+                                index={index}
                                 place={value.place}
                                 description={value.description}
+                                deleteIndex={handleDeleteData}
                                />
                    
                                     )
