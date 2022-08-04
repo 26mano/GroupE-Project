@@ -8,7 +8,9 @@
 }
 body{
   margin: 0% !important;
-  padding: 0%;
+  padding: 0% !important;
+  font-family: fantasy !important;
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {

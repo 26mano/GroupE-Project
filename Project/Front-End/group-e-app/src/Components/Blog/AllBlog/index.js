@@ -37,7 +37,7 @@ const [actualData, setActualData] = useState(data);
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <Typography variant="h4" fontFamily="'Yeseva One', cursive" color="white" className="section-title fw-bold mb-2 text-center" >Lates Blogs</Typography>
+                            <Typography variant="h4" fontFamily="'Yeseva One', cursive" color="white" className="section-title fw-bold mb-2 text-center" >Latest All Blogs</Typography>
                             <nav aria-label="breadcrumb">
                                
                             </nav>
