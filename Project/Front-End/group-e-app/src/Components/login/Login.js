@@ -1,68 +1,99 @@
-import { FormControl, FormGroup, Input , Stack, Button, Typography} from '@mui/material';
 import React, { useState } from 'react'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 
-const Login=()=>{
-  const getuser = localStorage.getItem('user');
-  const history = useNavigate();
+const Login = () => {
 
-  const [inval, setInval] = useState({
-      email: "",
-      password: ""
-  })
+    const history = useNavigate();
 
-  const [data, setData] = useState([]);
-  console.log(inval);
-  const InputEvent = (e) => {
-
-    const { value, name } = e.target;
-
-    setInval(() => {
-        return {
-            ...inval,
-            [name]: value
-        }
+    const [inpval, setInpval] = useState({
+        email: "",
+        password: ""
     })
 
-}
+    const [data, setData] = useState([]);
+    console.log(inpval);
 
-const validateData = (e) => {
-    e.preventDefault();
-    // console.log(getuser);
+    const getdata = (e) => {
+        console.log(e.target.value);
 
-    const { email, password } = inval;
-    //  console.log(inval)
-    const userdata = JSON.parse(getuser);
-    const userone = userdata.filter((el) => (
-     el.email === email && el.password === password
-    ));
-    // console.log(getuser);
-    console.log(userone);
+
+        const { value, name } = e.target;
+         console.log(value,name);
+
+
+        setInpval(() => {
+            return {
+                ...inpval,
+                [name]: value
+            }
+        })
+
     }
-  return(
-   
-    <>
-  <Stack sx={{display:"flex",height:"100vh", justifyContent:"center" , alignItems:"center" }} >
-        <form onSubmit={validateData}>
-          <FormGroup sx={{width:"100%",height:"100%" , padding:"10px",px:"30px" , bgcolor:"wheat", marginX:"50px" , marginY:"20px", borderRadius:"25px"}} >
-            <Typography variant='h5'  sx={{display:"flex" , textAlign:"center", justifyContent:"center" , margin:"20px"}} >
-              LOG_IN
-            </Typography>
-            
-            <FormControl >
-            <Input type="email" placeholder="Enter the Email"  name="email"  value={inval.email}      onChange={InputEvent}  />
-            </FormControl>
-            <br/><br/>
-            <FormControl >
-            <Input type="password" placeholder="Enter the password" name="password"  value={inval.password}   onChange={InputEvent}/>
-            </FormControl>
-            <br/><br/>
-            <Button variant="contained" color="warning" type="submit">submit</Button>
-          </FormGroup>
-        </form>
-  </Stack>
-    </>
-  )
+
+    const addData = (e) => {
+        e.preventDefault();
+
+        const getuserArr = localStorage.getItem("user");
+        console.log(getuserArr);
+
+        const { email, password } = inpval;
+        if (email === "") {
+          toast.error('email field is requred', {
+            position: "top-center",
+        });
+        }else if (password === "") {
+          toast.error('password field is requred', {
+            position: "top-center",
+        });
+        } else if (password.length < 5) {
+          toast.error('password field is greater than 5 requred', {
+            position: "top-center",
+        });
+        } else {
+
+            if (getuserArr && getuserArr.length) {
+                const userdata = JSON.parse(getuserArr);
+                const userlogin = userdata.filter((el, k) => {
+                    return el.email === email && el.password === password
+                });
+
+                if (userlogin.length === 0) {
+                    toast.error('invalid details', {
+                        position: "top-center",
+                    });
+                } else {
+                    console.log("user login succesfulyy");
+                    toast.success('successful', {autoClose:3000,position:"top-center"})
+                    localStorage.setItem("user_login", JSON.stringify(userlogin))
+
+                    history("/AllBlog")
+                }
+            }
+        }
+
+    }
+
+    return (
+        <>
+        
+                    <div>
+                        <h3>Sign Up</h3>
+                        <form onSubmit={addData}>
+                       
+                        <input type="email" placeholder='enter the email' name="email" value={inpval.email} onChange={getdata}/>
+                        <br/><br/>
+                        <input type="password" placeholder='enter the password' name="password" value={inpval.password} onChange={getdata}/>
+                        <br/><br/>
+                        <button>Submit</button>
+                        </form>
+                       
+                        <ToastContainer/>
+                        </div>
+
+        </>
+    )
 }
+
 export default Login

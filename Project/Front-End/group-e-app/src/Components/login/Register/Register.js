@@ -1,83 +1,125 @@
-import { FormControl, FormGroup, Input, Stack, Button, Typography } from "@mui/material";
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
-import Nav from "../../Nav";
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Register() {
 
-const[inval,setInval] = useState({
-  name:"",
-  email:"",
-  phone:"",
-  password:""
-})
-const[data,setData] = useState([]);
- const history =  useNavigate();
-const InputEvent=(e)=>{
-  e.preventDefault();
-  const{value,name} = e.target
-  setInval(()=>{
-    return{
-      ...inval,
-      [name]:value
+
+const Register = () => {
+
+    const history = useNavigate();
+
+    const [inpval, setInpval] = useState({
+        name: "",
+        email: "",
+    
+        password: ""
+    })
+
+   
+
+    const [data,setData] = useState([]);
+    console.log(inpval);
+
+    const getdata = (e) => {
+       
+
+
+        const { value, name } = e.target;
+        
+
+        setInpval(() => {
+            return {
+                ...inpval,
+                [name]: value
+            }
+        })
+
     }
-  })
+
+    const addData = (e) => {
+        e.preventDefault();
+
+        const { name, email,  password } = inpval;
+
+        if (name === "") {
+          toast.error('name field is requred', {
+            position: "top-center",
+        });
+        } else if (email === "") {
+          toast.error('email field is requred', {
+            position: "top-center",
+        });
+        }  else if (password === "") {
+          toast.error('password field is requred', {
+            position: "top-center",
+        });
+        } else if (password.length < 5) {
+          toast.error('password field is  greater than 5 requred', {
+            position: "top-center",
+        });
+        } else {
+            console.log("data added succesfully");
+            toast.error('succes', {
+              position: "top-center",
+          });
+            history("/login")
+            localStorage.setItem("user",JSON.stringify([...data,inpval]));
+
+        }
+
+    }
+
+    return (
+        <>
+       <div>
+                        <h3>Sign Up</h3>
+                        <form onSubmit={addData}>
+                        <input type="text" placeholder='enter the name' name="name" value={inpval.name} onChange={getdata}/>
+                        <br/><br/>
+                        <input type="email" placeholder='enter the email' name="email" value={inpval.email} onChange={getdata}/>
+                        <br/><br/>
+                        <input type="password" placeholder='enter the password' name="password" value={inpval.password} onChange={getdata}/>
+                        <br/><br/>
+                        <button>Submit</button>
+                        </form>
+                      
+                        <ToastContainer/>
+                       </div>
+
+            {/* <div className="container mt-3">
+                <section className='d-flex justify-content-between'>
+                    <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
+                        <h3 className='text-center col-lg-6'>Sign Up</h3>
+                        <Form >
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+
+                                <Form.Control type="text" name='name' onChange={getdata} placeholder="Enter Your Name" />
+                            </Form.Group>
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+
+                                <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
+                            </Form.Group>
+
+                           
+
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
+
+                                <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" />
+                            </Form.Group>
+                            <Button variant="primary" className='col-lg-6' onClick={addData} style={{ background: "rgb(67, 185, 127)" }} type="submit">
+                                Submit
+                            </Button>
+                        </Form>
+                        <p className='mt-3'>Already Have an Account <span><NavLink to="/login">SignIn</NavLink></span> </p>
+                    </div>
+                 
+                </section>
+               
+            </div> */}
+        </>
+    )
 }
-const addData=(e)=>{
-  e.preventDefault();
-  const{name,email,phone,password} = inval;
-  console.log(inval);
-  if(email==="")
-  {
-    alert("email is require");
-  }
-  else if(password==="")
-  {
-    alert("password is require")
-  }else if(password.length<2)
-  {
-    alert("password is greater")
-  }
-  else{
-    console.log("data add hai")
-    localStorage.setItem('user',JSON.stringify(...data, inval));
-    history("/Login");
-  }
 
-}
-  return(
-
-
-  <Stack sx={{display:"flex",height:"100vh", justifyContent:"center" , alignItems:"center" }}  >
-      {/* Register form start */}
-  <section>
-      <form onSubmit={addData}>
-        <FormGroup  sx={{width:"100%",height:"100%" , padding:"10px",px:"30px" , bgcolor:"wheat", marginX:"50px" , marginY:"20px", borderRadius:"25px"}} >
-        <Typography variant='h5'  sx={{display:"flex" , textAlign:"center", justifyContent:"center" , margin:"20px"}} >
-          REGISTER
-        </Typography>
-        <FormControl >
-        <Input type="text" placeholder="Enter the name"  name="name" value={inval.name}  onChange={InputEvent}/>
-        </FormControl>
-        <br/><br/>
-        <FormControl >
-        <Input type="email" placeholder="Enter the Email"  name="email"  value={inval.email}      onChange={InputEvent}  />
-        </FormControl>
-        <br/><br/>
-        <FormControl>
-        <Input type="number" placeholder="Enter the phone"  name="phone" value={inval.phone}   onChange={InputEvent}/>
-        </FormControl>
-        <br/><br/>
-        <FormControl>
-        <Input type="password" placeholder="Enter the password" name="password"  value={inval.password}   onChange={InputEvent}/>
-        </FormControl>
-        <br/><br/>
-        <Button variant="contained" color="warning" type="submit">submit</Button>
-        </FormGroup>
-      </form>
-  </section>
-  </Stack>
-
-  )
-}
 export default Register;

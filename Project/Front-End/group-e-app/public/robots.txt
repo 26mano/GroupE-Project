@@ -2,3 +2,11 @@
 User-agent: *
 Disallow:
     {/* <Button variant='contained' color='warning' size='small' > LOG-OUT </Button>  */}
+
+     npm i react-toastify
+     import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+ <ToastContainer/>
+ toast.error('email field is requred', {
+                position: "top-center",
+            });

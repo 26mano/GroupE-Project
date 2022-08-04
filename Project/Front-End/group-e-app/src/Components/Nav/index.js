@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import Img1 from './png.png';
 import { AppBar, Button, Tab, Tabs, Toolbar, Typography } from '@mui/material';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+
 
 
 export default function Nav() {
   const [value, setValue] = useState('');
   const [islog , setIsLog] = useState(false);
+ const history = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    history("/Login")
   };
 
 
+const logout =() =>{
+// console.log("logout hai")
 
+localStorage.removeItem("user");
+console.log(localStorage.removeItem("user_login"));
+history("/Login")
+}
 //linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%)
   return (
     <div style={{ position: "static", width: "100%" }}>
@@ -39,10 +48,11 @@ export default function Nav() {
            {/* <NavLink to="/AllBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }} > <Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }} >All Blog</Button> </NavLink> */}
            
             
-              <Tab LinkComponent={NavLink} to="/Register" label="Register"  />
+              {/* <Tab LinkComponent={NavLink} to="/Register" label="Register"  /> */}
               {/* <NavLink to="/Register" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }} > <Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }} >Register</Button> </NavLink> */}
 
-            <Tab  LinkComponent={NavLink} to="/Login" label="Login"  />
+            {/* <Tab  LinkComponent={NavLink} to="/Login" label="Login"  /> */}
+            
            {/* <NavLink to="/Login" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }} > <Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }} >Login</Button> </NavLink> */}
 
            
@@ -53,6 +63,9 @@ export default function Nav() {
             <Tab LinkComponent={NavLink} to="/MyBlog" label="MyBLog" />
            {/* <NavLink to="/ADDBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }}><Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }}>AddBlog</Button></NavLink> */}
            <Tab LinkComponent={NavLink} to="/ADDBlog" label="AddBlog"  />
+           <Tab LinkComponent={NavLink} to="/Register" label="Register"  />
+           <Tab  LinkComponent={NavLink} to="/Login" label="Login"  />
+           <Tab label="logout" onClick={logout}> logout</Tab>
            {/* <NavLink to="/MyBlog" style={{ order: 1, flexGrow: 0, paddingRight: "10px", textDecoration: "none", color: "black" }}><Button variant='contained' size='small' sx={{ color: "White", bgcolor: "#64b5f6" }}>My Blog</Button></NavLink> */}
            
            
