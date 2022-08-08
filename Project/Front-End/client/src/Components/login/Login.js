@@ -94,7 +94,7 @@ const Login = () => {
                         </FormControl>
                         <br/>
 
-                        <Button variant='contained' color="warning" >Submit</Button>
+                        <Button variant='contained' color="warning" onClick={addData} >Submit</Button>
                         
                         </FormGroup>
                         </form>

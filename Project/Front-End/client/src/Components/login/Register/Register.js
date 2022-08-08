@@ -64,7 +64,7 @@ const Register = () => {
             toast.error('succes', {
               position: "top-center",
           });
-            history("/login")
+            history("/Login")
             localStorage.setItem("user",JSON.stringify([...data,inpval]));
 
         }
@@ -91,7 +91,7 @@ const Register = () => {
                         </FormControl>
                         <br />
 
-                        <Button variant='contained' color="warning" >Submit</Button>
+                        <Button variant='contained' color="warning" onClick={addData} >Submit</Button>
 
                         </FormGroup>
                         </form>
