@@ -19,7 +19,7 @@ localStorage.removeItem("user_login");
 console.log(localStorage.removeItem("user_login"));
 history("/")
 }
-//linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%)
+
   return (
     <div style={{ position: "static", width: "100%" }}>
       <AppBar sx={{ boxShadow: "none", backgroundColor: "white" }} >
@@ -36,13 +36,11 @@ history("/")
               <Tab LinkComponent={NavLink}  to="/AllBlog" label="AllBlog"  />
               <Tab LinkComponent={NavLink} to="/Register" label="Register"  />
               <Tab  LinkComponent={NavLink} to="/Login" label="Login"  />
-
               </> :
               <>
               <Tab LinkComponent={NavLink}  to="/AllBlog" label="AllBlog"  />
               <Tab LinkComponent={Link} to="/MyBlog" label="MyBLog" />
               <Tab LinkComponent={NavLink} to="/ADDBlog" label="AddBlog"  />
-
               <Tab label="logout" onClick={logout}></Tab>
               </>
               }

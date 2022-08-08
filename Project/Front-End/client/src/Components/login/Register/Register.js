@@ -51,7 +51,12 @@ const Register = () => {
           toast.error('email field is requred', {
             position: "top-center",
         });
-        }  else if (password === "") {
+        } else if (!email.includes('@')) {
+            toast.error('Please Enter valid email address', {
+              position: "top-center",
+          });
+          }
+          else if (password === "") {
           toast.error('password field is requred', {
             position: "top-center",
         });
@@ -75,7 +80,7 @@ const Register = () => {
         <>
        <Stack sx={{display:"flex", height:'100vh' , justifyContent:"center", alignItems:"center", backgroundImage:"url('https://www.habilelabs.io/wp-content/uploads/2017/09/it-background-5.jpg')"}}>
                         <form onSubmit={addData}>
-                        <FormGroup sx={{ bgcolor:"wheat" , p:"50px", borderRadius:"25px" }}>
+                        <FormGroup sx={{ bgcolor:"wheat" , p:"105px", borderRadius:"25px" }}>
                         <Typography variant="h5" m={2} textAlign="center" > Register</Typography>
                         
                       <FormControl> 
