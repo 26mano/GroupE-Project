@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material'
 import "../../Home/Home.css"
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from "react-router";
+import { userContext } from "../../../App";
 // import Pagination from 'react-bootstrap/Pagination';
 
 const  Allblogcard = (props) => {
+  const {state} = useContext(userContext);
   const navigate = useNavigate();
     const handleEdit = () => {
         navigate(`/ADDBlog/Edit/${props.id}`)
@@ -27,7 +29,9 @@ const  Allblogcard = (props) => {
                             </Avatar>
                           } 
                           title={props.name}
-                          action={props.user ==="123"?
+                          action={  state && (props.user === "123")
+                            // props.user ==="123"
+                          ?
                           <div>
                           <IconButton aria-label="edit" onClick={handleEdit} >
                             <EditIcon fontSize="small"  />
