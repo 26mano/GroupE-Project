@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Img1 from './png.png';
 import { AppBar, Tab, Tabs, Toolbar, Typography } from '@mui/material';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Box } from '@mui/system';
-
+import { userContext } from '../../App';
 
 
 export default function Nav(props) {
-  // const [value, setValue] = useState('');
-  const [islog , setIsLog] = useState(false);
+ const {state, dispatch} = useContext(userContext)
  const history = useNavigate();
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  //   // history("/Login")
-  // };
-
 
 
 const logout =() =>{
 // console.log("logout hai")
+dispatch({type:"USER" , payload:false});
 
-localStorage.removeItem("user");
+localStorage.removeItem("user_login");
 console.log(localStorage.removeItem("user_login"));
 history("/")
 }
@@ -36,20 +30,22 @@ history("/")
           </Typography>
              
              <Box sx={{color:"grey" , borderInlineEndColor:"warning"}} >
-              {!islog ? 
+            { !state ? 
               <>
               <Tab LinkComponent={NavLink}  to="/"        label="Home"  />
               <Tab LinkComponent={NavLink}  to="/AllBlog" label="AllBlog"  />
               <Tab LinkComponent={NavLink} to="/Register" label="Register"  />
               <Tab  LinkComponent={NavLink} to="/Login" label="Login"  />
-              </> : 
+
+              </> :
               <>
               <Tab LinkComponent={NavLink}  to="/AllBlog" label="AllBlog"  />
               <Tab LinkComponent={Link} to="/MyBlog" label="MyBLog" />
               <Tab LinkComponent={NavLink} to="/ADDBlog" label="AddBlog"  />
-              <Tab label="logout" onClick={logout}></Tab>
-              </>}
 
+              <Tab label="logout" onClick={logout}></Tab>
+              </>
+              }
               </Box>
          
         </Toolbar>

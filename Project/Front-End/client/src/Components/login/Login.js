@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 import { Button, FormControl, FormGroup, Input, Stack, Typography } from '@mui/material';
-
+import {userContext} from "../../App";
 
 const Login = () => {
+
+   const {state, dispatch} = useContext(userContext);
 
     const history = useNavigate();
 
@@ -66,6 +68,7 @@ const Login = () => {
                         position: "top-center",
                     });
                 } else {
+                    dispatch({type:"USER" , payload:true});
                     console.log("user login succesfulyy");
                     toast.success('successful', {autoClose:3000,position:"top-center"})
                     localStorage.setItem("user_login", JSON.stringify(userlogin))

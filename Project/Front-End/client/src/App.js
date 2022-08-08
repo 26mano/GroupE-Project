@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import { Route, Routes } from 'react-router';
 import './App.css';
 // import AllBloges from './Components/Allblog/AllBloges';
@@ -10,6 +10,8 @@ import MyBlog from './Components/Blog/MyBlog';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; 
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'; 
 
+import {reducer, initialState} from "./reducer/UseReducer"
+
 // import Footer from './Components/Footer';
 
 
@@ -20,14 +22,11 @@ import Register from "./Components/login/Register/Register.js";
 import Nav from './Components/Nav';
 // import Nav from './Components/Nav';
 
-
-function App() {
+ export const userContext = createContext();
+ 
+ const Routing = () => {
   return (
-<div>
-  {/* <Blog /> */}
-  <Nav />
-     <Routes>
-
+    <Routes>
      <Route path="/" element={<Home />} /> 
      <Route path="/Login" element={<Login />} /> 
      <Route path="/Register" element={<Register />} /> 
@@ -39,8 +38,20 @@ function App() {
      <Route path="/ADDBlog/Edit/:blogId" element={<AddBlog />} /> 
 
     </Routes>
+  )
+ }
 
-   </div>
+function App() {
+const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <userContext.Provider  value={{state, dispatch}} >
+      < Nav />
+      <Routing />
+      </userContext.Provider>
+
+    </div>
   );
 }
 
