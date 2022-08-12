@@ -8,73 +8,72 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    const history = useNavigate();
-
-    const [inpval, setInpval] = useState({
-        name: "",
-        email: "",
-    
-        password: ""
+  const[name,setName] = useState('');
+  const[email,setEmail] = useState('');
+  const[password,setPassword]= useState(''); 
+  const history = useNavigate();
+   
+const addData =async(e) =>{
+    e.preventDefault();
+    const response = await fetch("http://localhost:8000/api/Register",{
+        method:'post',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify({
+            name:name,
+            email:email,
+            password:password
+        })
     })
-
+const data = await response.json();
+console.log(data);
+if (data.status === 'ok') {
+    history('/Login')
+}
+}
    
 
-    const [data, setData] = useState([]);
-    console.log(inpval);
+    // const addData = (e) => {
+    //     e.preventDefault();
 
-    const getdata = (e) => {
-       
+    //     const { name, email,  password } = inpval;
+
+    //     if (name === "") {
+    //       toast.error('name field is requred', {
+    //         position: "top-center",
+    //     });
+    //     } else if (email === "") {
+    //       toast.error('email field is requred', {
+    //         position: "top-center",
+    //     });
+    //     } else if (!email.includes('@')) {
+    //         toast.error('Please Enter valid email address', {
+    //           position: "top-center",
+    //       });
+    //       }
+    //       else if (password === "") {
+    //       toast.error('password field is requred', {
+    //         position: "top-center",
+    //     });
+    //     } else if (password.length < 5) {
+    //       toast.error('password field is  greater than 5 requred', {
+    //         position: "top-center",
+    //     });
+    //     } else {
+    //         console.log("data added succesfully");
+    //         toast.error('succes', {
+    //           position: "top-center",
+    //       });
+    //         history("/Login")
+    //         localStorage.setItem("user",JSON.stringify([...data,inpval]));
+
+    //     }
+
+    // }
 
 
-        const { value, name } = e.target;
-        
 
-        setInpval(() => {
-            return {
-                ...inpval,
-                [name]: value
-            }
-        })
-
-    }
-
-    const addData = (e) => {
-        e.preventDefault();
-
-        const { name, email,  password } = inpval;
-
-        if (name === "") {
-          toast.error('name field is requred', {
-            position: "top-center",
-        });
-        } else if (email === "") {
-          toast.error('email field is requred', {
-            position: "top-center",
-        });
-        } else if (!email.includes('@')) {
-            toast.error('Please Enter valid email address', {
-              position: "top-center",
-          });
-          }
-          else if (password === "") {
-          toast.error('password field is requred', {
-            position: "top-center",
-        });
-        } else if (password.length < 5) {
-          toast.error('password field is  greater than 5 requred', {
-            position: "top-center",
-        });
-        } else {
-            console.log("data added succesfully");
-            toast.error('succes', {
-              position: "top-center",
-          });
-            history("/Login")
-            localStorage.setItem("user",JSON.stringify([...data,inpval]));
-
-        }
-
-    }
 
     return (
         <>
@@ -84,15 +83,15 @@ const Register = () => {
                         <Typography variant="h5" m={2} textAlign="center" > Register</Typography>
                         
                       <FormControl> 
-                        <Input type="text" placeholder='Enter the name' name="name" value={inpval.name} onChange={getdata}/>
+                        <Input type="text" placeholder='Enter the name' name="name" value={name} onChange={(e)=>setName(e.target.value)}/>
                       </FormControl>
                         <br />
                       <FormControl>
-                        <Input type="email" placeholder='Enter the email' name="email" value={inpval.email} onChange={getdata}/>
+                        <Input type="email" placeholder='Enter the email' name="email" value={email}  onChange={(e)=>setEmail(e.target.value)}/>
                         </FormControl>
                         <br />
                         <FormControl>
-                        <Input type="password" placeholder='Enter the password' name="password" value={inpval.password} onChange={getdata}/>
+                        <Input type="password" placeholder='Enter the password' name="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                         </FormControl>
                         <br />
 

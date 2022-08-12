@@ -15,7 +15,7 @@ const logout =() =>{
 // console.log("logout hai")
 dispatch({type:"USER" , payload:false});
 
-localStorage.removeItem("user_login");
+localStorage.removeItem("token");
 console.log(localStorage.removeItem("user_login"));
 history("/")
 }
