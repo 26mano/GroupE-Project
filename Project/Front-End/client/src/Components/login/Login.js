@@ -7,7 +7,7 @@ import {userContext} from "../../App";
 
 const Login = () => {
 
-   const {state, dispatch} = useContext(userContext);
+   const { dispatch} = useContext(userContext);
    const[email,setEmail] =useState('');
    const[password,setPassword] = useState('');
     const history = useNavigate();
@@ -28,9 +28,13 @@ const Login = () => {
         console.log(data);
         if(data.user)
         {
+          
             localStorage.setItem('token',data.user)
             alert("login successfully");
-            window.location.href ="/allblog";
+            dispatch({type:"USER" , payload:true});
+            history('/allblog');
+            // window.location.href ="/allblog"; // rerender the entire dom
+
 
         }else {
             alert("please check your email or password");
