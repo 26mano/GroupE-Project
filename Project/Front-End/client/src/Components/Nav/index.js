@@ -35,7 +35,7 @@ history("/")
               <Tab LinkComponent={NavLink}  to="/"        label="Home"  />
               <Tab LinkComponent={NavLink}  to="/AllBlog" label="AllBlog"  />
               <Tab LinkComponent={NavLink} to="/Register" label="Register"  />
-              <Tab  LinkComponent={NavLink} to="/Login" label="Login"  />
+              {/* <Tab  LinkComponent={NavLink} to="/Login" label="Login"  /> */}
               </> :
               <>
               <Tab LinkComponent={NavLink}  to="/AllBlog" label="AllBlog"  />

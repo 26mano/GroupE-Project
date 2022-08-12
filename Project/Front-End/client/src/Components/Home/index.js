@@ -60,7 +60,7 @@ function Home() {
     <div>
     <Nav />
     {/* ------------------------------------------------------------ */}
-        <Stack id="home" sx={{ position:"static",height:"100vh", justifyContent:"center" , backgroundImage:"url('https://s3images.zee5.com/wp-content/uploads/2021/08/man-wearing-white-shirt-brown-shorts-and-green-backpack-672358-e1578279373952.jpg')"}}>
+        <Stack id="home" sx={{ position:"static",height:"100vh", justifyContent:"center" , backgroundImage:"url('https://s3images.zee5.com/wp-content/uploads/2021/08/man-wearing-white-shirt-brown-shorts-and-green-backpack-672358-e1578279373952.jpg')", backgroundRepeat:"no-repeat", backgroundSize:"100vw"}}>
 
         <Container style={{display:"grid"}} >
 

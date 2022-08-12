@@ -117,9 +117,9 @@ const Login = () => {
     return (
         <>
         
-                    <Stack sx={{display:"flex", height:'100vh' , justifyContent:"center", alignItems:"center", backgroundImage:"url('https://www.habilelabs.io/wp-content/uploads/2017/09/it-background-5.jpg')"}} >
+                    <Stack sx={{display:"flex", height:'100vh', justifyContent:"center", alignItems:"center", backgroundImage:"url('https://www.habilelabs.io/wp-content/uploads/2017/09/it-background-5.jpg')", backgroundRepeat:"no-repeat", backgroundSize:"100vw"}} >
                     <form onSubmit={addData}>
-                       <FormGroup sx={{ bgcolor:"wheat" , p:"105px", borderRadius:"25px" }}>
+                       <FormGroup sx={{ bgcolor:"wheat" , p:"55px", borderRadius:"25px" }}>
                         <Typography variant="h5" m={2} textAlign="center" >Log_in</Typography>
                         
                         <FormControl>
