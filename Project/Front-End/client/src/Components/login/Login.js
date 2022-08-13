@@ -30,14 +30,19 @@ const Login = () => {
         {
           
             localStorage.setItem('token',data.user)
-            alert("login successfully");
+            // alert("login successfully");
+            toast.success('successful', {autoClose:3000,position:"top-center"});
             dispatch({type:"USER" , payload:true});
             history('/allblog');
             // window.location.href ="/allblog"; // rerender the entire dom
 
 
         }else {
-            alert("please check your email or password");
+            toast.error('Please Enter valid email address or password', {
+                          position: "top-center",
+                          
+                      })
+
         }
     }
     // const [inpval, setInpval] = useState({
