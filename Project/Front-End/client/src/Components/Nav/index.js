@@ -16,7 +16,7 @@ const logout =() =>{
 dispatch({type:"USER" , payload:false});
 
 localStorage.removeItem("token");
-console.log(localStorage.removeItem("user_login"));
+console.log(localStorage.removeItem("token"));
 history("/")
 }
 
