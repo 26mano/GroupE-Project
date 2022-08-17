@@ -27,13 +27,12 @@ const Login = () => {
         const data = await response.json();
         console.log(data);
         if(data.user)
-        {
-          
+        {     
             localStorage.setItem('token',data.user)
             // alert("login successfully");
             toast.success('successful', {autoClose:3000,position:"top-center"});
             dispatch({type:"USER" , payload:true});
-            history('/allblog');
+            history('/AllBlog');
             // window.location.href ="/allblog"; // rerender the entire dom
 
 

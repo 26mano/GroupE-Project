@@ -79,3 +79,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 #### md, medium: 900px
 #### lg, large: 1200px
 #### xl, extra-large: 1536px
+ //   "react-toastify": "^9.0.7",

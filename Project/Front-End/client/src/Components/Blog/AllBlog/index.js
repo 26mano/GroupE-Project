@@ -34,7 +34,7 @@ const [actualData, setActualData] = useState(data);
   return ( 
 <div style={{ backgroundColor:"grey", paddingTop:"70px" }} > 
 <Nav/>
-<section className="px-50">
+<section className="px-50" >
                 <div className="container">
                     <div className="row">
                         <div className="col-12">

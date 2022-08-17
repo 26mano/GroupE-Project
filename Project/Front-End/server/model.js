@@ -6,5 +6,7 @@ const studenschema = new mongoose.Schema({
 }, {
     versionKey: false // You should be aware of the outcome after set to false
   })
-const datamodel = new mongoose.model("datamodel",studenschema);
-module.exports = datamodel;
+  
+  module.exports = mongoose.model("datamodel",studenschema);
+ 
+

@@ -5,9 +5,16 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 require("./database/db");
+
+//import user schema
 const User = require("./model");
 app.use(express.json());
 app.use(cors());
+
+//import Blog Schema
+const Blog = require('./model2');
+
+
 
 //register post api
 app.post("/api/Register",async(req,res)=>{
@@ -59,6 +66,34 @@ else{
         res.json({status:"error",error:'duplicated email'})
     }
 })
+//AddBlog post api
+app.post("/api/AddBlog",async(req,res)=>{
+    try{
+     const blog = await Blog.create({
+     name:req.body.name,
+     place:req.body.place,
+     image:req.body.image,
+     description:req.body.description,
+     })
+     console.log(req.body);
+     console.log(blog);
+     res.json({status:"ok",blog:true})
+  
+    }
+    catch(err)
+    {
+        res.json({status:"error",error:"duplicate error"})
+    }
+    
+})
+
+//AllBlog get api
+app.get('/api/AllBlog', (req, res, next) => {
+    Blog.find(function(err,blog) {
+      if(err) return next(err);
+      res.jsonp(blog)
+    })
+  })
 
 app.listen(port,()=>{
     console.log("done")

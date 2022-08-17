@@ -1,7 +1,7 @@
 import { FormGroup,FormControl, Stack, Typography,Button, Input } from '@mui/material';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -13,7 +13,7 @@ const Register = () => {
   const[password,setPassword]= useState(''); 
   const history = useNavigate();
    
-const addData =async(e) =>{
+const addData = async(e) =>{
     e.preventDefault();
     const response = await fetch("http://localhost:8000/api/Register",{
         method:'post',
@@ -26,12 +26,12 @@ const addData =async(e) =>{
             password:password
         })
     })
-const data = await response.json();
-console.log(data);
-if (data.status === 'ok') {
-    history('/Login')
-}
-}
+        const data = await response.json();
+        console.log(data);
+        if (data.status === 'ok') {
+            history('/Login')
+        }
+    }
    
 
     // const addData = (e) => {

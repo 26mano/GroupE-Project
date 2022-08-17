@@ -11,21 +11,35 @@ function AddBlog() {
     let history = useNavigate();
     const[name,setName] = useState(blogId? existingData[blogId].name: "");
     const[place,setPlace] = useState(blogId? existingData[blogId].place: "");
-    const[des,setDes] = useState(blogId? existingData[blogId].description: "");
+    const[description,setDes] = useState(blogId? existingData[blogId].description: "");
     const[image,setImage] = useState(blogId? existingData[blogId].image: "");
 
     
-    const Submitbutton =(e)=>{
+    const Submitbutton = async(e) =>{
 
         e.preventDefault();
-       
+        const response = await fetch( "http://localhost:8000/api/Login", {
+            method:'post',
+            headers:{
+                'content-type':'application/json'
+            },
+            body :JSON.stringify({
+                name:name,
+                place:place,
+                image:image,
+                description:description
+            })
+        })
+        const blog = await response.json();
+        console.log(blog);
+
         if(existingData){
             console.log(existingData[existingData.length-1].id);
-            localStorage.setItem('data', JSON.stringify([...existingData,{id:parseInt(existingData[existingData.length-1].id+1), user: '123', name:name,image:image,place:place,description:des} ]))
+            localStorage.setItem('data', JSON.stringify([...existingData,{id:parseInt(existingData[existingData.length-1].id+1), user: '123', name:name,image:image,place:place,description:description} ]))
             history("/MyBlog")                                                                       
                                                                                      //5  //Id - 0,1,2
         }else {
-            localStorage.setItem('data', JSON.stringify([{id:0, user: '123', name:name,image:image,place:place,description:des} ]))
+            localStorage.setItem('data', JSON.stringify([{id:0, user: '123', name:name,image:image,place:place,description:description} ]))
             history("/MyBlog")
         }
         
@@ -35,14 +49,14 @@ function AddBlog() {
         e.preventDefault();
         
         const Removed = existingData.filter((datas) => (
-            (datas.id) != (blogId)
+            (datas.id) !== (blogId)
         ))
         
             console.log(blogId);
            console.log(Removed);
         console.log(existingData);
 
-        localStorage.setItem('data', JSON.stringify([...Removed, {id:parseInt(blogId), user: "123", name:name,image:image,place:place,description:des} ]))
+        localStorage.setItem('data', JSON.stringify([...Removed, {id:parseInt(blogId), user: "123", name:name,image:image,place:place,description:description} ]))
         history("/MyBlog")
        
         // if(existingData){
@@ -79,7 +93,7 @@ function AddBlog() {
                         </FormControl>
                         <FormControl sx={{ mt: "25px" }} >
                             <InputLabel htmlFor="my-input" >Description</InputLabel>
-                            <Input id="my-input" type='textArea' value={des} name="des" onChange={(e)=>setDes(e.target.value)} />
+                            <Input id="my-input" type='textArea' value={description} name="des" onChange={(e)=>setDes(e.target.value)} />
                         </FormControl>
                         <FormControl sx={{ mt: "40px" }} >
                             <Button variant='contained' sx={{ bgcolor: "goldenrod" }} onClick={blogId? UpdateButton:Submitbutton} type="submit" >{blogId ? "Update" : "Add"}</Button>
